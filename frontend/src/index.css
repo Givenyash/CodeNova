@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('https://framerusercontent.com/assets/EOr0mi4hNtlgWNn9if640v3rrYo.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('https://framerusercontent.com/assets/Y9oKMcVwOkDvwGBNNqkUWp4OEH4.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('https://framerusercontent.com/assets/I1WyTvz6lXe9nDzpeTthGvDFNJQ.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+:root {
+  --cn-background: #09090B;
+  --cn-surface: #18181B;
+  --cn-border: #27272A;
+  --cn-primary: #2563EB;
+  --cn-primary-hover: #1D4ED8;
+  --cn-secondary: #EAB308;
+  --cn-text-primary: #FAFAFA;
+  --cn-text-secondary: #A1A1AA;
+  --cn-success: #22C55E;
+  --cn-error: #EF4444;
+  --cn-console-bg: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--cn-background);
+  color: var(--cn-text-primary);
+}
+
+code, .mono {
+  font-family: 'JetBrains Mono', 'Source Code Pro', monospace;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: 'Cabinet Grotesk', 'IBM Plex Sans', sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 45.4 93.4% 47.5%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 217.2 91.2% 59.8%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.375rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cn-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cn-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cn-text-secondary);
+}
+
+/* Monaco Editor overrides */
+.monaco-editor {
+  border-radius: 6px;
+}
+
+.monaco-editor .margin,
+.monaco-editor-background {
+  background-color: var(--cn-surface) !important;
+}
+
+/* Console output styling */
+.console-output {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.console-output .error {
+  color: var(--cn-error);
+}
+
+.console-output .success {
+  color: var(--cn-success);
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Grid background pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@layer base {
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+}
