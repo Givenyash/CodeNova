@@ -1,0 +1,55 @@
+/* CodeNOVA App Styles */
+
+/* Remove default margins */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* App container */
+.App {
+  min-height: 100vh;
+  background-color: var(--cn-background);
+}
+
+/* Monaco editor container */
+.monaco-editor-container {
+  border: 1px solid var(--cn-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Focus styles */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--cn-primary);
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(37, 99, 235, 0.3);
+  color: var(--cn-text-primary);
+}
+
+/* Disabled state */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Remove transition from animations */
+.animate-spin,
+.animate-pulse,
+.animate-fadeIn {
+  transition: none;
+}
